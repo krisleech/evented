@@ -9,10 +9,12 @@ class MyPublisher
 end
 
 class MySubscriber
-  attr_reader :received_input
-
   def it_happened(input)
     @received_input = input
+  end
+
+  def received_input
+    @received_input
   end
 end
 
