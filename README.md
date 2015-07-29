@@ -1,4 +1,4 @@
-# Evented
+# Evented (WIP)
 
 Publish and Subscribe capabilities for Crystal objects.
 
@@ -39,7 +39,11 @@ publisher.call("hello")
 
 ## Development
 
-TODO: Write instructions for development
+### Specs
+
+```
+crystal spec
+```
 
 ## Contributing
 
