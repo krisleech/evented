@@ -48,7 +48,7 @@ To subscribe an object to receive events include `Evented::Subscriber` and
 provide your own `on_event` method which will receive 2 arguments, the
 `event_name` and `payload`.
 
-```
+```crystal
 require "evented"
 
 class MySubscriber
@@ -62,7 +62,7 @@ end
 
 To subscribe the listener to a publisher:
 
-```
+```crystal
 publisher = MyPublisher.new
 publisher.subscribe(MySubscriber.new)
 
@@ -90,4 +90,4 @@ crystal spec
 
 ## Contributors
 
-- Kris Leech(https://github.com/krisleech) Kris Leech - creator, maintainer
+- [Kris Leech](https://github.com/krisleech) - creator, maintainer
