@@ -1,6 +1,13 @@
-# Evented (WIP)
+# Evented
 
-Publish and Subscribe capabilities for Crystal objects.
+*A micro library providing Crystal objects with Publish-Subscribe capabilities*
+
+[![Build Status](https://travis-ci.org/krisleech/evented.png?branch=master)](https://travis-ci.org/krisleech/evented)
+
+* Decouple core business logic from external concerns in Hexagonal style architectures
+* Use as an alternative to callbacks and Observers
+* Connect objects based on context without permanence
+* React to events synchronously
 
 ## Installation
 
@@ -14,6 +21,14 @@ end
 
 ## Usage
 
+### Publishing
+
+By including `Evented::Publisher` your objects get `broadcast` and
+`subscribe` methods.
+
+`broadcast` can be called from within your object whenever you want to
+broadcast a significant event.
+
 ```crystal
 require "evented"
 
@@ -25,6 +40,16 @@ class MyPublisher
     broadcast(:something_happened, result)
   end
 end
+```
+
+### Subscribing
+
+To subscribe an object to receive events include `Evented::Subscriber` and
+provide your own `on_event` method which will receive 2 arguments, the
+`event_name` and `payload`.
+
+```
+require "evented"
 
 class MySubscriber
   include Evented::Subscriber
@@ -33,11 +58,19 @@ class MySubscriber
     # ...
   end
 end
+```
 
+To subscribe the listener to a publisher:
+
+```
 publisher = MyPublisher.new
 publisher.subscribe(MySubscriber.new)
+
 publisher.call("hello")
 ```
+
+In the above example the subscriber will have `on_event(:something_happened, "hello")`
+called.
 
 ## Development
 
