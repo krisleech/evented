@@ -80,6 +80,12 @@ called.
 crystal spec
 ```
 
+### Automatically run Specs
+
+```
+ls ./**/*.cr | entr crystal spec
+```
+
 ## Contributing
 
 1. Fork it ( https://github.com/krisleech/evented/fork )
