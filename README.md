@@ -27,6 +27,8 @@ class MyPublisher
 end
 
 class MySubscriber
+  include Evented::Subscriber
+
   def something_happened(result)
     # ...
   end

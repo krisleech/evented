@@ -1,6 +1,9 @@
 require "./evented/*"
 
 module Evented
+  module Subscriber
+  end
+
   module Publisher
     def subscribe(listener)
       listeners << listener
@@ -10,7 +13,7 @@ module Evented
     end
 
     def listeners
-      @listeners ||= []
+      @listeners ||= [] of Evented::Subscriber
     end
   end
 end

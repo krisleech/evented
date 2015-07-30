@@ -9,6 +9,8 @@ class MyPublisher
 end
 
 class MySubscriber
+  include Evented::Subscriber
+
   def it_happened(input)
     @received_input = input
   end
