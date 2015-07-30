@@ -11,23 +11,28 @@ end
 class MySubscriber
   include Evented::Subscriber
 
-  def it_happened(input)
-    @received_input = input
+  def on_event(event_name, payload)
+    @event_name = event_name
+    @payload    = payload
   end
 
-  def received_input
-    @received_input
+  def event_name
+    @event_name
+  end
+
+  def payload
+    @payload
   end
 end
 
 describe "Publishing and Subscribing to events" do
-
   it "works" do
     input = "hello"
     publisher = MyPublisher.new
     subscriber = MySubscriber.new
     publisher.subscribe(subscriber)
     publisher.call(input)
-    subscriber.received_input.should eq input
+    subscriber.event_name.should eq :it_happened
+    subscriber.payload.should eq input
   end
 end

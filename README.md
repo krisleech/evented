@@ -29,7 +29,7 @@ end
 class MySubscriber
   include Evented::Subscriber
 
-  def something_happened(result)
+  def on_event(event_name, payload)
     # ...
   end
 end
