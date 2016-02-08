@@ -10,18 +10,9 @@ end
 
 class MySubscriber
   include Evented::Subscriber
+  getter :event_name, :payload
 
-  def on_event(event_name, payload)
-    @event_name = event_name
-    @payload    = payload
-  end
-
-  def event_name
-    @event_name
-  end
-
-  def payload
-    @payload
+  def on_event(@event_name, @payload)
   end
 end
 

@@ -1,3 +1,5 @@
+require "yaml"
+
 module Evented
-  VERSION = "0.0.1"
+  VERSION = (YAML.load(File.read("./shard.yml")) as Hash)["version"]
 end
