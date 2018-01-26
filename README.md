@@ -11,12 +11,12 @@
 
 ## Installation
 
-Add it to `Projectfile`
+Add this to your application's `shard.yml`:
 
-```crystal
-deps do
-  github "krisleech/evented"
-end
+```yaml
+dependencies:
+  evented:
+    github: krisleech/evented
 ```
 
 ## Usage
